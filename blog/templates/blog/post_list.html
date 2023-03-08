@@ -6,7 +6,7 @@
 <body>
    
     <h1>Das Katzentier</h1>     
-    <article>
+    <!-- <article>
         <time>published: 8.3.2023, 10:00</time>
     <h2><a href = "">Erster Akt</a></h2>
         <h3>September 2019</h3>
@@ -18,9 +18,19 @@
         <time>published: 8.3.2023, 10:00</time>
         <h2><a href = "">Facts</a></h2>
         <h3><em>Marianne mag:</em></p></h3>
-            <ul><li>Am Rücken gekrault werden</li>
-            <li>Reibekäse</li></ul>
-    </article>
+            <ul>
+                <li>Am Rücken gekrault werden</li>
+                <li>Reibekäse</li>
+            </ul>
+    </article> -->
+
+    {% for post in posts %}
+        <article>
+            <time>created:  {{ post.created_date  }}</time>
+            <h2><a href="">{{ post.title }}</a></h2>
+            <p>{{ post.text|linebreaksbr }}</p>
+        </article>
+    {% endfor %}
 
 </body>
 </html>
