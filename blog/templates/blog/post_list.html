@@ -1,36 +1,13 @@
-<!DOCTYPE html>  
-<html>
-    <head>
-        <title>Mariannes Blog</title>
-    </head>
-<body>
-   
-    <h1>Das Katzentier</h1>     
-    <!-- <article>
-        <time>published: 8.3.2023, 10:00</time>
-    <h2><a href = "">Erster Akt</a></h2>
-        <h3>September 2019</h3>
-        <p>Im September 2019 bezog eine junge Familie eine Erdgeschosswohnung in Leipzig. Noch am Tag des Einzugs
-            saß eine dreifarbige Katze vor der Balkontür, die von den Nachbarn als <em>Marianne</em> vorgestellt wurde.</p>
-    </article>
+{% extends 'blog/base.html' %}
 
-    <article>
-        <time>published: 8.3.2023, 10:00</time>
-        <h2><a href = "">Facts</a></h2>
-        <h3><em>Marianne mag:</em></p></h3>
-            <ul>
-                <li>Am Rücken gekrault werden</li>
-                <li>Reibekäse</li>
-            </ul>
-    </article> -->
-
+{% block content %}
     {% for post in posts %}
-        <article>
-            <!-- <time>published:  {{ post.published_date  }}</time> -->
-            <h2><a href="">{{ post.title }}</a></h2>
+        <article class ="post">
+            <time class ="date">
+                {{ post.published_date  }}
+                </time> 
+            <h2><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></h2>
             <p>{{ post.text|linebreaksbr }}</p>
         </article>
     {% endfor %}
-
-</body>
-</html>
+{% endblock %}
