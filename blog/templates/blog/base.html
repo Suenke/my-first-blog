@@ -10,7 +10,12 @@
     <body>
         <header class="page-header">
             <div class="container">
-                <h1><a href ="/">Die Erlebnisse eines Katzentieres, dass sich nach und nach <br>eine zweite Futter- und Streichelquelle
+                {% if user.is_authenticated %}
+                    <a href="{% url 'post_new' %}" class="top-menu">
+                        {% include './icons/file-earmark-plus.svg' %}
+                    </a>
+                {% endif %}
+                <h1><a href ="/">Die Erlebnisse eines Katzentieres, dass sich nach und nach eine zweite Futter- und Streichelquelle
                 erschlichen hat.</a></h1>
             </div>
         </header>     
